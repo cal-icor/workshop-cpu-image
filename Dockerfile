@@ -11,4 +11,5 @@ USER ${NB_USER:-jovyan}
 COPY environment.yml /tmp/environment.yml
 RUN mamba env update -f /tmp/environment.yml --name notebook && \
     mamba install -y -n notebook "ca-certificates>=2026.10.19" "certifi>=2026.10.19" && \
+    mamba install -y -n base "ca-certificates>=2026.10.19" "certifi>=2026.10.19" && \
     mamba clean --all -f -y
